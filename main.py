@@ -26,9 +26,10 @@ Class2.append(Student3) #вручную добавляем школьника в
 print(len(Class2))
 Class1.remove(Student3) #вручную удаляем школьника из класса 1
 print(len(Class1))
-
 if Student2 < Student3:
     print("Студент 1 меньше или равен Студенту 2")
 else:
     print("Студент больше или равен Студенту 2")
 print(repr(Student5))
+print(len(Class2))
+print(Class2["I"]) #работает не так как я хотела
