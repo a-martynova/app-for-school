@@ -3,7 +3,7 @@ from Class import Class
 
 
 class Student(Human):
-    def __init__(self, name: str, last_name: str, id = None, _class=None):
+    def __init__(self, name: str, last_name: str, id=None, _class=None):
         super().__init__(name, last_name, id)
         self._class = _class
 
@@ -17,6 +17,6 @@ class Student(Human):
         return f"Student: {self.name} {self.last_name}, id: {self._Human__id}, Class: {self._class}"
 
     def __repr__(self):
-        return f"Student({self.name}, {self.last_name}, id={self._Human__id}), {self._class},"
+        return f"Student({self.name}, {self.last_name}, id={self._Human__id}, {self._class})"
 
 

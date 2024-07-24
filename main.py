@@ -31,5 +31,5 @@ if Student2 < Student3:
 else:
     print("Студент больше или равен Студенту 2")
 print(repr(Student5))
-print(len(Class2))
-print(Class2["I"]) #работает не так как я хотела
+print(Class2)
+print("fff", Class2["M"]) #работает не так как я хотела
