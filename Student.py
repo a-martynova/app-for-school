@@ -19,4 +19,3 @@ class Student(Human):
     def __repr__(self):
         return f"Student({self.name}, {self.last_name}, id={self._Human__id}, {self._class})"
 
-

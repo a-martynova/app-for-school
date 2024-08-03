@@ -32,3 +32,11 @@ else:
     print("Студент больше или равен Студенту 2")
 print(repr(Student5))
 print(Class2["L"])
+
+if __name__ == "__main__":
+    Teacher1 = Teacher("Galyna", "Ivanova", ['Математика', 'Информатика'])
+    Student4 = Student("Masha", "Larina")
+    Student5 = Student("Egor", "Morozov")
+    Student6 = Student("Kirill", "Potapov")
+    my_class = Class(Teacher1, [Student4, Student5, Student6])
+    Class.write_csv('class_data.csv', my_class)
