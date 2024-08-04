@@ -13,6 +13,10 @@ class Class(list):
     def __iter__(self):
         return iter(sorted(super().__iter__(), key=lambda student: (student.last_name, student.name)))
 
+    '''def __iter__(self):
+        sorted_students = sorted(self, key=lambda student: (student.name, student.last_name))
+        return iter(sorted_students)'''
+
     @staticmethod
     def write_csv(filename: str, class_instance: "Class"):
         with open(filename, mode='w', newline='', encoding='utf-8') as file:
