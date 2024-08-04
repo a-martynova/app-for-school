@@ -1,4 +1,4 @@
-Name,Last Name
-Masha,Larina
-Egor,Morozov
-Kirill,Potapov
+Name,Last Name,id,Homeroom Teacher Name,Homeroom Teacher Last Name
+Masha,Larina,10,Galyna,Ivanova
+Egor,Morozov,11,Galyna,Ivanova
+Kirill,Potapov,12,Galyna,Ivanova

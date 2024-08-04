@@ -5,14 +5,14 @@ class Human:
         self.name = name
         self.last_name = last_name
         if id is None:
-            self.__id = self.generate__id()
+            self.id = self.generate_id()  # Изменено на id
         else:
             if id in Human._id_set:
                 raise Exception("Переданный id уже существует!")
-            self.__id = id
+            self.id = id  # Изменено на id
             Human._id_set.add(id)
 
-    def generate__id(self):
+    def generate_id(self):  # Изменено на generate_id
         new_id = 1
         while new_id in Human._id_set:
             new_id += 1
@@ -23,13 +23,13 @@ class Human:
         return (self.last_name, self.name) < (other.last_name, other.name)
 
     def __str__(self):
-        return f"{self.name} {self.last_name} {self.__id}"
+        return f"{self.name} {self.last_name} {self.id}"  # Изменено на id
 
     def __repr__(self):
-        return f"Human({self.name}, {self.last_name}, {self.__id})"
+        return f"Human({self.name}, {self.last_name}, {self.id})"  # Изменено на id
 
     def __hash__(self):
-        return hash((self.__id, self.name, self.last_name))
+        return hash((self.id, self.name, self.last_name))  # Изменено на id
 
 
 

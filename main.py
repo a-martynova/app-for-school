@@ -20,6 +20,7 @@ Student4 = Student("Masha", "Larina")
 Student5 = Student("Egor", "Morozov")
 Student6 = Student("Kirill", "Potapov")
 Class2 = Class(Teacher1, [Student4, Student5, Student6]) #создаем класс 2
+print("Class2", Class2)
 Student3.set_class(Class2) #меняем школьнику номер 3 класс, правда сам школьник не удаляется из класса 1, и не добавляется в класс 2 это необходим как-то реализовать особенно или вносить изменения 'вручную'?
 Student3.get_class()
 Class2.append(Student3) #вручную добавляем школьника в класс 2
@@ -32,11 +33,14 @@ else:
     print("Студент больше или равен Студенту 2")
 print(repr(Student5))
 print(Class2["L"])
-
+print("Loki")
 if __name__ == "__main__":
     Teacher1 = Teacher("Galyna", "Ivanova", ['Математика', 'Информатика'])
     Student4 = Student("Masha", "Larina")
     Student5 = Student("Egor", "Morozov")
     Student6 = Student("Kirill", "Potapov")
     my_class = Class(Teacher1, [Student4, Student5, Student6])
+    print(my_class)
     Class.write_csv('class_data.csv', my_class)
+    class_instance = Class.read_csv('class_data.csv')
+    print(class_instance._homeroom_teacher.name, class_instance._homeroom_teacher.last_name) #достаем из класса учителя
