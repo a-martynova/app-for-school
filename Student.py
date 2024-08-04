@@ -2,7 +2,7 @@ from Human import Human
 from Class import Class
 
 class Student(Human):
-    def __init__(self, name: str, last_name: str, id=None, _class=None):
+    def __init__(self, name: str, last_name: str, id=None, _class: "Class"=None):
         super().__init__(name, last_name, id)
         self._class = _class
 

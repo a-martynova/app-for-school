@@ -59,3 +59,7 @@ Class.write_csv('class_data.csv', Class3) #записываем класс
 class_instance = Class.read_csv('class_data.csv') #читаем класс
 print(class_instance)
 print(class_instance._homeroom_teacher.name, class_instance._homeroom_teacher.last_name) #достаем из класса учителя
+
+Student10= Student("Varvara", "Golushkina", 10) #возникает ошибка, так как id занят
+
+
