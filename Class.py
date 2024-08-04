@@ -10,6 +10,8 @@ class Class(list):
     def __getitem__(self, key):
         need_students = [student for student in self if student.last_name.startswith(key) or student.name.startswith(key)]
         return need_students
+    def __iter__(self):
+        return iter(sorted(super().__iter__(), key=lambda student: (student.last_name, student.name)))
 
     @staticmethod
     def write_csv(filename: str, class_instance: "Class"):
