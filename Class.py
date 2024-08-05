@@ -19,9 +19,11 @@ class Class(list):
     def __iter__(self):
         return iter(sorted(super().__iter__(), key=lambda student: (student.last_name, student.name)))
 
-    '''def __iter__(self):
-        sorted_students = sorted(self, key=lambda student: (student.name, student.last_name))
-        return iter(sorted_students)'''
+    def __str__(self):
+        return f"Class {self._grade}{self._letter} Homeroom Teacher: {self._homeroom_teacher.name} {self._homeroom_teacher.last_name}, Students: [{', '.join(str(student) for student in self)}]"
+
+    def __repr__(self):
+        return f"Class(grade={self._grade}, letter='{self._letter}', Homeroom_teacher={repr(self._homeroom_teacher)}, Students={super().__repr__()})"
 
     @staticmethod
     def write_csv(filename: str, class_instance: "Class"):

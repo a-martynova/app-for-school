@@ -11,6 +11,7 @@ Student3 = Student("Ivan", "Makarov")
 Class1 = Class("11", "A", Teacher1, [Student1, Student2, Student3])  # создаем класс
 print(len(Class1))  # проверяем что методы работают именно для школьников
 Teacher1.set_class(Class1)  # добавляем этот класс преподавателю
+print(Teacher1)
 print(Teacher1.get_class())  # не поняла что понимается под читать класс, вернула просто поле
 Student3.set_class(Class1)  # заполняем школьнику 3 поле класс
 print(Student3.get_class()) #возвращаем класс школьника 3
@@ -43,7 +44,6 @@ else:
 
 print(repr(Student5))
 print("name start L", Class2["L"]) # ищем в классе 2 ученика/ учеников с именем или фамилией на L
-
 Teacher3 = Teacher("Ivan", "Borodavkin", [Subject.BIOLOGY, Subject.CHEMISTRY])
 Student7 = Student("Anna", "Erofeeva")
 Student8 = Student("Elizaveta", "Berkovich")
@@ -57,9 +57,8 @@ Student9.set_class(Class3)
 print(Class3)
 Class.write_csv('class_data.csv', Class3) #записываем класс
 class_instance = Class.read_csv('class_data.csv') #читаем класс
-print(class_instance)
 print(class_instance._grade, class_instance._letter) #достаем из школьного класса его номер и букву
-print(class_instance._homeroom_teacher.name, class_instance._homeroom_teacher.last_name) #достаем из школьного класса учителя
+print(class_instance._homeroom_teacher) #достаем из школьного класса учителя
 
 #Student10= Student("Varvara", "Golushkina", 10) #проверяем что возникает ошибка, так как id занят
 
