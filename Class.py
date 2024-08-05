@@ -1,15 +1,21 @@
 from typing import List
 import csv
+
+
 class Class(list):
-    def __init__(self, _homeroom_teacher: "Teacher", _students: List["Student"] = None):
+    def __init__(self, _grade: int, _letter: str, _homeroom_teacher: "Teacher", _students: List["Student"] = None):
         if _students is None:
             _students = []
         super().__init__(_students)
+        self._grade = _grade
+        self._letter = _letter
         self._homeroom_teacher = _homeroom_teacher
 
     def __getitem__(self, key):
-        need_students = [student for student in self if student.last_name.startswith(key) or student.name.startswith(key)]
+        need_students = [student for student in self if
+                         student.last_name.startswith(key) or student.name.startswith(key)]
         return need_students
+
     def __iter__(self):
         return iter(sorted(super().__iter__(), key=lambda student: (student.last_name, student.name)))
 
@@ -21,9 +27,9 @@ class Class(list):
     def write_csv(filename: str, class_instance: "Class"):
         with open(filename, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            writer.writerow(['Name', 'Last Name', 'id', 'Homeroom Teacher Name', 'Homeroom Teacher Last Name'])
+            writer.writerow(['grade', 'letter', 'Name', 'Last Name', 'id', 'Homeroom Teacher Name', 'Homeroom Teacher Last Name'])
             for student in class_instance:
-                writer.writerow([student.name, student.last_name, student.id, class_instance._homeroom_teacher.name,
+                writer.writerow([class_instance._grade, class_instance._letter, student.name, student.last_name, student.id, class_instance._homeroom_teacher.name,
                                  class_instance._homeroom_teacher.last_name])
 
     @staticmethod
@@ -37,9 +43,9 @@ class Class(list):
             students = []
 
             for row in reader:
-                name, last_name, student_id = row[0], row[1], row[2]
-                homeroom_teacher = Teacher(name=row[3], last_name=row[4], _subjects=[])
+                grade, letter, name, last_name, student_id = row[0], row[1], row[2], row[3], row[4]
+                homeroom_teacher = Teacher(name=row[5], last_name=row[6], _subjects=[])
                 student = Student(name=name, last_name=last_name, id=student_id)
                 students.append(student)
 
-            return Class(_homeroom_teacher=homeroom_teacher, _students=students)
+            return Class(_grade = grade, _letter = letter, _homeroom_teacher=homeroom_teacher, _students=students)

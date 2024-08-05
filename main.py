@@ -8,7 +8,7 @@ print(Teacher1._subjects)  # просто посмотреть заполнил�
 Student1 = Student("Petya", "Savenkov")
 Student2 = Student("Anna", "Smirnova")
 Student3 = Student("Ivan", "Makarov")
-Class1 = Class(Teacher1, [Student1, Student2, Student3])  # создаем класс
+Class1 = Class("11", "A", Teacher1, [Student1, Student2, Student3])  # создаем класс
 print(len(Class1))  # проверяем что методы работают именно для школьников
 Teacher1.set_class(Class1)  # добавляем этот класс преподавателю
 print(Teacher1.get_class())  # не поняла что понимается под читать класс, вернула просто поле
@@ -23,7 +23,7 @@ Teacher2 = Teacher("Ivan", "Pushkin", [Subject.INFORMATICS, Subject.MATH])
 Student4 = Student("Masha", "Larina")
 Student5 = Student("Egor", "Morozov")
 Student6 = Student("Kirill", "Potapov")
-Class2 = Class(Teacher1, [Student4, Student5, Student6])  # создаем класс 2
+Class2 = Class("8", "B", Teacher1, [Student4, Student5, Student6])  # создаем класс 2
 Student4.set_class(Class2)
 Student5.set_class(Class2)
 Student6.set_class(Class2)
@@ -48,7 +48,7 @@ Teacher3 = Teacher("Ivan", "Borodavkin", [Subject.BIOLOGY, Subject.CHEMISTRY])
 Student7 = Student("Anna", "Erofeeva")
 Student8 = Student("Elizaveta", "Berkovich")
 Student9 = Student("Stanislav", "Rudometkin")
-Class3 = Class(Teacher3, [Student7, Student8, Student9])
+Class3 = Class("9", "A", Teacher3, [Student7, Student8, Student9])
 Teacher3.set_class(Class3)
 Student7.set_class(Class3)
 Student8.set_class(Class3)
@@ -58,8 +58,9 @@ print(Class3)
 Class.write_csv('class_data.csv', Class3) #записываем класс
 class_instance = Class.read_csv('class_data.csv') #читаем класс
 print(class_instance)
-print(class_instance._homeroom_teacher.name, class_instance._homeroom_teacher.last_name) #достаем из класса учителя
+print(class_instance._grade, class_instance._letter) #достаем из школьного класса его номер и букву
+print(class_instance._homeroom_teacher.name, class_instance._homeroom_teacher.last_name) #достаем из школьного класса учителя
 
-Student10= Student("Varvara", "Golushkina", 10) #возникает ошибка, так как id занят
+#Student10= Student("Varvara", "Golushkina", 10) #проверяем что возникает ошибка, так как id занят
 
 

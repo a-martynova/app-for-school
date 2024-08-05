@@ -1,4 +1,4 @@
-Name,Last Name,id,Homeroom Teacher Name,Homeroom Teacher Last Name
-Elizaveta,Berkovich,11,Ivan,Borodavkin
-Anna,Erofeeva,10,Ivan,Borodavkin
-Stanislav,Rudometkin,12,Ivan,Borodavkin
+grade,letter,Name,Last Name,id,Homeroom Teacher Name,Homeroom Teacher Last Name
+9,A,Elizaveta,Berkovich,11,Ivan,Borodavkin
+9,A,Anna,Erofeeva,10,Ivan,Borodavkin
+9,A,Stanislav,Rudometkin,12,Ivan,Borodavkin
