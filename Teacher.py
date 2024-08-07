@@ -4,6 +4,7 @@ from Class import Class
 from typing import List
 from Class import Class
 
+
 class Teacher(Human):
     def __init__(self, name: str, last_name: str, _subjects: List[Subject], __homeroom_class: Class | None = None):
         Human.__init__(self, name, last_name)
@@ -24,5 +25,3 @@ class Teacher(Human):
             return f"Teacher: {self.name} {self.last_name}, Subjects: {[subject.name for subject in self._subjects]}, Class: {self.__homeroom_class._grade}{self.__homeroom_class._letter}"
         else:
             return f"Teacher: {self.name} {self.last_name}, Subjects: {[subject.name for subject in self._subjects]}, Homeroom Class: {self.__homeroom_class}"
-
-

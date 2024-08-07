@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Subject(Enum):
     MATH = 'Математика'
     RUSSIAN_LANG = 'Русcкий Язык'

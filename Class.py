@@ -20,7 +20,7 @@ class Class(list):
         return iter(sorted(super().__iter__(), key=lambda student: (student.last_name, student.name)))
 
     def __str__(self):
-        return f"Class {self._grade}{self._letter} Homeroom Teacher: {self._homeroom_teacher.name} {self._homeroom_teacher.last_name}, Students: [{', '.join(str(student) for student in self)}]"
+        return f"Class {self._grade}{self._letter} Homeroom Teacher: {self._homeroom_teacher.name} {self._homeroom_teacher.last_name}, Students: [{', '.join(str(student.name) + ' ' + str(student.last_name) for student in self)}]"
 
     def __repr__(self):
         return f"Class(grade={self._grade}, letter='{self._letter}', Homeroom_teacher={repr(self._homeroom_teacher)}, Students={super().__repr__()})"
@@ -29,10 +29,13 @@ class Class(list):
     def write_csv(filename: str, class_instance: "Class"):
         with open(filename, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            writer.writerow(['grade', 'letter', 'Name', 'Last Name', 'id', 'Homeroom Teacher Name', 'Homeroom Teacher Last Name'])
+            writer.writerow(
+                ['grade', 'letter', 'Name', 'Last Name', 'id', 'Homeroom Teacher Name', 'Homeroom Teacher Last Name'])
             for student in class_instance:
-                writer.writerow([class_instance._grade, class_instance._letter, student.name, student.last_name, student.id, class_instance._homeroom_teacher.name,
-                                 class_instance._homeroom_teacher.last_name])
+                writer.writerow(
+                    [class_instance._grade, class_instance._letter, student.name, student.last_name, student.id,
+                     class_instance._homeroom_teacher.name,
+                     class_instance._homeroom_teacher.last_name])
 
     @staticmethod
     def read_csv(filename: str):
@@ -50,4 +53,4 @@ class Class(list):
                 student = Student(name=name, last_name=last_name, id=student_id)
                 students.append(student)
 
-            return Class(_grade = grade, _letter = letter, _homeroom_teacher=homeroom_teacher, _students=students)
+            return Class(_grade=grade, _letter=letter, _homeroom_teacher=homeroom_teacher, _students=students)
