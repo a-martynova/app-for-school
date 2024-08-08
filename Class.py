@@ -1,5 +1,6 @@
 from typing import List
 import csv
+from Subject import Subject
 
 
 class Class(list):
@@ -30,12 +31,14 @@ class Class(list):
         with open(filename, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow(
-                ['grade', 'letter', 'Name', 'Last Name', 'id', 'Homeroom Teacher Name', 'Homeroom Teacher Last Name'])
+                ['grade', 'letter', 'Name', 'Last Name', 'id', 'Homeroom Teacher Name', 'Homeroom Teacher Last Name', 'Homeroom Teacher Subjects'])
             for student in class_instance:
                 writer.writerow(
                     [class_instance._grade, class_instance._letter, student.name, student.last_name, student.id,
                      class_instance._homeroom_teacher.name,
-                     class_instance._homeroom_teacher.last_name])
+                     class_instance._homeroom_teacher.last_name, ', '.join([subject.value for subject in class_instance._homeroom_teacher._subjects])])
+
+
 
     @staticmethod
     def read_csv(filename: str):
@@ -49,7 +52,7 @@ class Class(list):
 
             for row in reader:
                 grade, letter, name, last_name, student_id = row[0], row[1], row[2], row[3], row[4]
-                homeroom_teacher = Teacher(name=row[5], last_name=row[6], _subjects=[])
+                homeroom_teacher = Teacher(name=row[5], last_name=row[6], _subjects=[Subject(subject.strip()) for subject in row[7].split(',')])
                 student = Student(name=name, last_name=last_name, id=student_id)
                 students.append(student)
 

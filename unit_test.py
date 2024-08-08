@@ -66,6 +66,7 @@ class TestSchoolSystem(unittest.TestCase):
         self.assertEqual(class_instance._letter, "A")
         self.assertEqual(len(class_instance), len(self.class1))
         self.assertEqual(class_instance._homeroom_teacher.name, self.teacher1.name)
-
+        self.assertEqual(class_instance._homeroom_teacher._subjects, self.teacher1._subjects)
+        
 # if __name__ == '__main__':
 #     unittest.main()

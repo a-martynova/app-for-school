@@ -1,4 +1,4 @@
-grade,letter,Name,Last Name,id,Homeroom Teacher Name,Homeroom Teacher Last Name
-11,A,Ivan,Makarov,12,Galyna,Ivanova
-11,A,Petya,Savenkov,10,Galyna,Ivanova
-11,A,Anna,Smirnova,11,Galyna,Ivanova
+grade,letter,Name,Last Name,id,Homeroom Teacher Name,Homeroom Teacher Last Name,Homeroom Teacher Subjects
+11,A,Ivan,Makarov,12,Galyna,Ivanova,История
+11,A,Petya,Savenkov,10,Galyna,Ivanova,История
+11,A,Anna,Smirnova,11,Galyna,Ivanova,История
