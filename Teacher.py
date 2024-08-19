@@ -1,17 +1,15 @@
 from Human import Human
 from Subject import Subject
-from Class import Class
 from typing import List
-from Class import Class
 
 
 class Teacher(Human):
-    def __init__(self, name: str, last_name: str, _subjects: List[Subject], __homeroom_class: Class | None = None):
+    def __init__(self, name: str, last_name: str, _subjects: List[Subject], __homeroom_class: "Class" = None):
         Human.__init__(self, name, last_name)
         self.__homeroom_class = None
         self._subjects = _subjects
 
-    def set_class(self, __homeroom_class: Class | None):
+    def set_class(self, __homeroom_class: "Class"):
         self.__homeroom_class = __homeroom_class
 
     def get_class(self):

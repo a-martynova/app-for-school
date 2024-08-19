@@ -1,6 +1,8 @@
 from typing import List
 import csv
 from Subject import Subject
+from Teacher import Teacher
+from Student import Student
 
 
 class Class(list):
@@ -42,8 +44,6 @@ class Class(list):
 
     @staticmethod
     def read_csv(filename: str):
-        from Teacher import Teacher
-        from Student import Student
 
         with open(filename, mode='r', newline='', encoding='utf-8') as file:
             reader = csv.reader(file)
